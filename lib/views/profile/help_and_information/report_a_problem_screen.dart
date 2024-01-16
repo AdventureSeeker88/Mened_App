@@ -129,11 +129,17 @@ class _ReportAProblemScreenState extends State<ReportAProblemScreen> {
                 const SizedBox(
                   height: 20,
                 ),
+
+
                 TextFormField(
-                  maxLines: 8,
+                 maxLines: 8,
+                  cursorColor: themewhitecolor,
+                  style: const TextStyle(
+                    color: themewhitecolor,
+                  ), 
                   decoration: InputDecoration(
-                    hintText: "Here you can describe the problem",
-                    hintStyle: const TextStyle(
+                     hintText: "Here you can describe the problem",
+                   hintStyle: const TextStyle(
                       color: themegreycolor,
                     ),
                     filled: true,
@@ -150,45 +156,12 @@ class _ReportAProblemScreenState extends State<ReportAProblemScreen> {
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
+                   
                     contentPadding: const EdgeInsets.all(12),
                   ),
+                 
                 ),
-                // const SizedBox(
-                //   height: 20,
-                // ),
-                // const Text(
-                //   "Your privacy is important to us. It is Brainstorming's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.\n\nWe only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.\n\nWe only retain collected information for as long as necessary to provide you with your requested service. ",
-                //   textAlign: TextAlign.center,
-                //   style: TextStyle(color: themegreytextcolor, fontSize: 16),
-                // ),
-                // const SizedBox(
-                //   height: 40,
-                // ),
-                // Center(
-                //   child: CustomTextButton(
-                //     buttonText: "Terms & Conditions",
-                //     onTap: () {},
-                //     textstyle: const TextStyle(
-                //       color: Palette.themecolor,
-                //       fontSize: 18,
-                //       // fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 25,
-                // ),
-                // Center(
-                //   child: CustomTextButton(
-                //     buttonText: "Privacy Policy",
-                //     onTap: () {},
-                //     textstyle: const TextStyle(
-                //       color: Palette.themecolor,
-                //       fontSize: 18,
-                //       // fontWeight: FontWeight.bold,
-                //     ),
-                //   ),
-                // ),
+                
               ],
             ),
           ),

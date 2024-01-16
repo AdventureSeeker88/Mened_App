@@ -17,6 +17,7 @@ import 'package:mended/views/flicks/widget/flicks_comment.dart';
 import 'package:mended/views/flicks/widget/video_widget.dart';
 import 'package:mended/widgets/shimer.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class FlicksScreen extends StatefulWidget {
   const FlicksScreen({Key? key}) : super(key: key);
@@ -337,27 +338,22 @@ class _FlicksScreenState extends State<FlicksScreen> {
                                                 height: 20,
                                               ),
                                               IconButton(
-                                                onPressed: () {
+                                                onPressed: () async {
                                                   // final post =
                                                   //     Provider.of<PaReelsPro>(
                                                   //         context,
                                                   //         listen: false);
                                                   // post.share(data.reels_id);
+
+
+                                                    await Share.share(
+                                                              "${data.id}\n\n${data.caption}");
                                                 },
                                                 icon: Image.asset(
                                                   Assets.shareButton,
                                                 ),
                                               ),
-                                              const SizedBox(
-                                                height: 5,
-                                              ),
-                                              Text(
-                                                data.shares.toString(),
-                                                style: const TextStyle(
-                                                  color: themewhitecolor,
-                                                  fontSize: 16,
-                                                ),
-                                              ),
+                                              
                                               const SizedBox(
                                                 height: 20,
                                               ),

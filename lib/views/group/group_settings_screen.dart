@@ -272,7 +272,7 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                                     url: memberData!.image,
                                                   ),
                                                   title: Text(
-                                                    memberData.uid,
+                                                    memberData.name,
                                                     style: const TextStyle(
                                                       color: themewhitecolor,
                                                     ),

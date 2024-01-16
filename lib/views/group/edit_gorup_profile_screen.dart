@@ -134,31 +134,37 @@ class _EditProfileForThisGroupScreenState
                       ),
                       TextFormField(
                         controller: nameCtrl,
+                        cursorColor: themewhitecolor,
+                        style: const TextStyle(
+                          color: themewhitecolor,
+                        ),
                         decoration: InputDecoration(
-                          fillColor: themegreycolor.withOpacity(0.5),
-                          filled: true,
                           hintText: "Magicwhirl Star",
                           hintStyle: const TextStyle(
-                            color: themewhitecolor,
+                            color: themegreycolor,
+                          ),
+                          filled: true,
+                          fillColor: themegreycolor.withOpacity(0.4),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: themewhitecolor,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: themewhitecolor,
                             ),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              color: themewhitecolor,
-                            ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.edit_outlined,
-                            color: themewhitecolor,
-                          ),
+                          contentPadding: const EdgeInsets.all(12),
                         ),
-                        validator: validator,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Name is empty";
+                          }
+                          return null;
+                        },
                       ),
                       const SizedBox(
                         height: 20,
@@ -166,32 +172,41 @@ class _EditProfileForThisGroupScreenState
                       TextFormField(
                         controller: bioCtrl,
                         maxLines: 8,
+                        cursorColor: themewhitecolor,
+                        style: const TextStyle(
+                          color: themewhitecolor,
+                        ),
                         decoration: InputDecoration(
-                          alignLabelWithHint: true,
-                          fillColor: themegreycolor.withOpacity(0.5),
+                          hintText: "Add Bio",
+                          hintStyle: const TextStyle(
+                            color: themegreycolor,
+                          ),
                           filled: true,
-                          labelText: "Add Bio",
-                          labelStyle: const TextStyle(
-                            color: themewhitecolor,
+                          fillColor: themegreycolor.withOpacity(0.4),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: themewhitecolor,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: themewhitecolor,
                             ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              color: themewhitecolor,
-                            ),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                           suffixIcon: const Icon(
                             Icons.edit_outlined,
                             color: themewhitecolor,
                           ),
+                          contentPadding: const EdgeInsets.all(12),
                         ),
-                        validator: validator,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Bio is empty";
+                          }
+                          return null;
+                        },
                       ),
                       const Spacer(),
                       CustomSimpleRoundedButton(

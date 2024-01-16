@@ -206,7 +206,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   cursorColor: themewhitecolor,
                   style: const TextStyle(
                     color: themewhitecolor,
-                  ),
+                  ), 
                   decoration: InputDecoration(
                     hintText: "Confirm Change Password",
                     hintStyle: const TextStyle(
