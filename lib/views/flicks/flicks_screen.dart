@@ -339,12 +339,7 @@ class _FlicksScreenState extends State<FlicksScreen> {
                                               ),
                                               IconButton(
                                                 onPressed: () async {
-                                                  // final post =
-                                                  //     Provider.of<PaReelsPro>(
-                                                  //         context,
-                                                  //         listen: false);
-                                                  // post.share(data.reels_id);
-
+                                                 
 
                                                     await Share.share(
                                                               "${data.id}\n\n${data.caption}");
@@ -352,7 +347,7 @@ class _FlicksScreenState extends State<FlicksScreen> {
                                                 icon: Image.asset(
                                                   Assets.shareButton,
                                                 ),
-                                              ),
+                                              ), 
                                               
                                               const SizedBox(
                                                 height: 20,
