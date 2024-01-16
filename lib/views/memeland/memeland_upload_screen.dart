@@ -85,20 +85,7 @@ class _UploadMemeScreenState extends State<UploadMemeScreen> {
                       ),
                     ),
                   ),
-                  // Align(
-                  //   alignment: Alignment.topRight,
-                  //   child: CustomTextButton(
-                  //     buttonText: "Share",
-                  //     onTap: () {
-
-                  //     },
-                  //     textstyle: const TextStyle(
-                  //       color: themelightgreencolor,
-                  //       fontSize: 18,
-                  //       fontWeight: FontWeight.bold,
-                  //     ),
-                  //   ),
-                  // ),
+               
                 ],
               ),
             ),
@@ -216,31 +203,24 @@ class _UploadMemeScreenState extends State<UploadMemeScreen> {
                 },
                 child: Align(
                   alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 60.0,
-                      left: 20,
-                      right: 20,
-                    ),
-                    child: Container(
-                      height: 60,
-                      width: size.width,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            "assets/images/png/mended-button.png",
-                          ),
-                          fit: BoxFit.cover,
+                  child: Container(
+                    height: 60,
+                    width: size.width,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/png/mended-button.png",
                         ),
+                        fit: BoxFit.cover,
                       ),
-                      child: const Center(
-                        child: Text(
-                          "Share",
-                          style: TextStyle(
-                            color: themewhitecolor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Share",
+                        style: TextStyle(
+                          color: themewhitecolor,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
