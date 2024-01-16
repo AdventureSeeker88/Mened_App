@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mended/provider/auth_pro.dart';
 import 'package:mended/theme/colors.dart';
@@ -32,8 +31,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         child: CustomSimpleRoundedButton(
           onTap: () {
             if (_formKey.currentState!.validate()) {
-              final authProvider =
-                  Provider.of<AuthPro>(context, listen: false);
+              final authProvider = Provider.of<AuthPro>(context, listen: false);
 
               authProvider.userChangePasswordFunc(
                   oldPasswordC.text, newPasswordC.text, context);
@@ -91,6 +89,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 TextFormField(
                   controller: oldPasswordC,
                   obscureText: oldPass,
+                  style: const TextStyle(
+                    color: themewhitecolor,
+                  ),
                   decoration: InputDecoration(
                     hintText: "Old Password",
                     hintStyle: const TextStyle(
@@ -144,6 +145,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 TextFormField(
                   controller: newPasswordC,
                   obscureText: changePass,
+                  style: const TextStyle(
+                    color: themewhitecolor,
+                  ),
                   decoration: InputDecoration(
                     hintText: "Change Password",
                     hintStyle: const TextStyle(
@@ -200,6 +204,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   controller: confirmPasswordC,
                   obscureText: confirmChangePass,
                   cursorColor: themewhitecolor,
+                  style: const TextStyle(
+                    color: themewhitecolor,
+                  ),
                   decoration: InputDecoration(
                     hintText: "Confirm Change Password",
                     hintStyle: const TextStyle(

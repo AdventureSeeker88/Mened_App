@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mended/model/auth_model.dart';
@@ -5,6 +8,7 @@ import 'package:mended/provider/auth_pro.dart';
 import 'package:mended/route/go_router.dart';
 import 'package:mended/route/navigator.dart';
 import 'package:mended/theme/colors.dart';
+import 'package:mended/utils/database.dart';
 import 'package:mended/widgets/custom_icon_button.dart';
 import 'package:mended/widgets/custom_simple_rounded_button.dart';
 import 'package:mended/widgets/shimer.dart';
@@ -31,7 +35,7 @@ class _BuddyListScreenState extends State<BuddyListScreen> {
               Stack(
                 children: [
                   CustomIconButton(
-                    onTap: () {
+                    onTap: () async {
                       context.pop();
                     },
                     child: const Icon(
@@ -53,7 +57,7 @@ class _BuddyListScreenState extends State<BuddyListScreen> {
                 ],
               ),
               const SizedBox(
-                height: 40, 
+                height: 40,
               ),
               Consumer<AuthPro>(
                 builder: ((context, modelvalue, child) {
@@ -125,7 +129,6 @@ class _BuddyListScreenState extends State<BuddyListScreen> {
                                                 Routes.chattingScreen, {
                                               'id': model,
                                             });
-                                            
                                           },
                                           height: 40,
                                           width: 120,
@@ -146,7 +149,11 @@ class _BuddyListScreenState extends State<BuddyListScreen> {
                                       ),
                                     );
                                   } else {
-                                    return Container();
+                                    return const Center(
+                                      child: CircularProgressIndicator(
+                                        color: themewhitecolor,
+                                      ),
+                                    );
                                   }
                                 }));
                           },

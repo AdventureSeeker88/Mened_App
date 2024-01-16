@@ -45,6 +45,7 @@ class _ProfileScreenState extends State<ProfileScreen>
 
   @override
   Widget build(BuildContext context) {
+    log(("Auth: ${FirebaseAuth.instance.currentUser!.uid}"));
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -269,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen>
 
                                     Go.named(context, Routes.buddyList);
                                   },
-                                  child:  Column(
+                                  child: Column(
                                     children: [
                                       Icon(
                                         Icons.people_alt_outlined,
@@ -296,7 +297,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                   onTap: () {
                                     Go.named(context, Routes.menderList);
                                   },
-                                  child:  Column(
+                                  child: Column(
                                     children: [
                                       Icon(
                                         Icons.person_outline,
@@ -323,7 +324,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                   onTap: () {
                                     Go.named(context, Routes.messagesScreen);
                                   },
-                                  child:  Column(
+                                  child: Column(
                                     children: [
                                       Icon(
                                         Icons.bubble_chart_outlined,

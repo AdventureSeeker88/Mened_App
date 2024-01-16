@@ -379,7 +379,11 @@ class _FlicksScreenState extends State<FlicksScreen> {
                               ],
                             );
                           } else {
-                            return Container();
+                            return  const Center(
+                                      child: CircularProgressIndicator(
+                                        color: themewhitecolor,
+                                      ),
+                                    );
                           }
                         }));
                   });

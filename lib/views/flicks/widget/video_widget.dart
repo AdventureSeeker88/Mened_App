@@ -25,18 +25,9 @@ class _FlicksVideoWidgetState extends State<FlicksVideoWidget> {
   void initState() {
     super.initState();
 
-    // videoPlayerController = VideoPlayerController.network(widget.videoUrl)
-    //   ..initialize().then((value) {
-    //     videoPlayerController.setLooping(true);
-    //     if (widget.play) {
-    //       videoPlayerController.play();
-    //     } else {
-    //       videoPlayerController.pause();
-    //     }
-    //   });
-
     videoPlayerController = VideoPlayerController.network(
       widget.videoUrl,
+      
     );
 
     videoPlayerController.addListener(() {
@@ -45,6 +36,8 @@ class _FlicksVideoWidgetState extends State<FlicksVideoWidget> {
     videoPlayerController.setLooping(true);
     videoPlayerController.initialize().then((_) => setState(() {}));
     videoPlayerController.play();
+      
+
 
     Provider.of<FlicksPro>(context, listen: false).addViews(widget.id);
   }
@@ -70,7 +63,7 @@ class _FlicksVideoWidgetState extends State<FlicksVideoWidget> {
       decoration: const BoxDecoration(
         color: Colors.black,
       ),
-      child: VideoPlayer(videoPlayerController),
+      child:VideoPlayer(videoPlayerController, )
     );
   }
 }

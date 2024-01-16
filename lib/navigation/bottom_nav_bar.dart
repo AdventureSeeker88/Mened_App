@@ -54,13 +54,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      // drawer: Drawer(
-      //   width: width / 100 * 60,
-      //   child: MainDrawer(),
-      // ),
+    
       floatingActionButton: CustomIconButton(
         onTap: () {
-          // FirebaseAuth.instance.signOut();
+         
           chooseOption(size);
         },
         child: Padding(

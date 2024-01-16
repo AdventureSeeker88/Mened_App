@@ -190,12 +190,14 @@ class AuthPro with ChangeNotifier {
   }
 
   Future<AuthM> getUserById(id) async {
+      
     return await firestore
         .collection(Database.auth)
         .doc(id)
         .get()
         .then((value) {
       AuthM result = AuthM.fromSnap(value);
+       
       return result;
     });
   }

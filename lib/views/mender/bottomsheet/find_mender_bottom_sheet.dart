@@ -191,13 +191,13 @@ class _FindMendorBottomSheetState extends State<FindMendorBottomSheet> {
                       filled: true,
                       fillColor: themewhitecolor,
                       border: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                         borderSide: const BorderSide(
                           color: themegreytextcolor,
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       hintText: "What would you like to discuss...",
-                      hintStyle: TextStyle(color: themegreytextcolor)
+                      hintStyle: const TextStyle(color: themegreytextcolor)
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {
