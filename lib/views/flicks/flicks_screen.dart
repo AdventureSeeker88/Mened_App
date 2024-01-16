@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -143,6 +145,8 @@ class _FlicksScreenState extends State<FlicksScreen> {
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
                     final data = listdata[index];
+                    log("data*****************");
+                    log("data: ${data.id}");
                     return FutureBuilder<AuthM>(
                         future: Provider.of<AuthPro>(context, listen: false)
                             .getUserById(data.uid),

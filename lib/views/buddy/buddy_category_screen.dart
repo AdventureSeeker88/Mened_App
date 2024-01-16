@@ -20,13 +20,7 @@ class BuddiesCategoryScreen extends StatefulWidget {
 }
 
 class _BuddiesCategoryScreenState extends State<BuddiesCategoryScreen> {
-  @override
-  void initState() {
-    // Timer(const Duration(seconds: 3), () {
-    //   rateYourMender(context);
-    // });
-    super.initState();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {

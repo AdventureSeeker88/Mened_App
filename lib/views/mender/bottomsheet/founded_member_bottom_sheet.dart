@@ -60,7 +60,7 @@ class _FoundedMemberBottomSheetState extends State<FoundedMemberBottomSheet> {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 25,
+                    height: 35,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -126,7 +126,7 @@ class _FoundedMemberBottomSheetState extends State<FoundedMemberBottomSheet> {
                                             padding: const EdgeInsets.only(
                                               left: 20,
                                               right: 20,
-                                              top: 50,
+                                              top: 80,
                                             ),
                                             child: Container(
                                               height: size.height / 100 * 46,

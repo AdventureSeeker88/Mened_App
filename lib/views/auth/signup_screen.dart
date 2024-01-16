@@ -401,7 +401,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   if (_formKey.currentState!.validate()) {
                                     if (value != true) {
                                       customToast(
-                                          "Please Select Privacy polciy to continue!",
+                                          "Please Select Privacy policy to continue!",
                                           context);
                                     } else {
                                       final post = Provider.of<AuthPro>(context,

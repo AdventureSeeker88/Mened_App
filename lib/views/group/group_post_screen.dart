@@ -226,7 +226,7 @@ class _GroupPostScreenState extends State<GroupPostScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                                 elevation: 5,
-                                                child: const Row(
+                                                child:  Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [

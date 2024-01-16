@@ -37,6 +37,7 @@ class _BuddyConnectingScreenState extends State<BuddyConnectingScreen> {
   }
 
   void findbuddy() async {
+    log("SELECTED CATEGORY: ${widget.category}");
     await FirebaseFirestore.instance
         .collection("auth")
         .where('category', arrayContainsAny: [widget.category])
@@ -44,14 +45,20 @@ class _BuddyConnectingScreenState extends State<BuddyConnectingScreen> {
         .then((value) {
           String uid = "uid";
           if (value.docs.isNotEmpty) {
+              log("1");
+
             int randomIndex = math.Random().nextInt(value.docs.length);
             var ramdomaccount = value.docs[randomIndex];
             uid = ramdomaccount.data()['uid'];
           }
 
           if (uid == FirebaseAuth.instance.currentUser!.uid) {
+              log("2");
+
             findbuddy();
           } else {
+              log("3");
+
             timer = Timer(const Duration(seconds: 2), () {
               log("id: $uid");
               Go.namedreplace(context, Routes.buddyFind, {

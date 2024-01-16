@@ -109,6 +109,7 @@ class AuthPro with ChangeNotifier {
         image: "",
         name: name,
         bio: "I am using Mended",
+        aboutDoctor: "",
         email: email,
         dateTime: Timestamp.now(),
         type: 0,

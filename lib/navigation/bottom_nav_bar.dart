@@ -217,7 +217,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: const Row(
+                        child:  Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
@@ -255,7 +255,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child: const Row(
+                        child:  Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(

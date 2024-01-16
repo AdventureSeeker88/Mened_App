@@ -6,6 +6,7 @@ class AuthM {
   final String image;
   final String name;
   final String bio;
+  final String aboutDoctor;
   final String email;
   final Timestamp dateTime;
   final int type;
@@ -25,6 +26,7 @@ class AuthM {
     required this.image,
     required this.name,
     required this.bio,
+    required this.aboutDoctor,
     required this.email,
     required this.dateTime,
     required this.type,
@@ -45,6 +47,7 @@ class AuthM {
         'image': image,
         'name': name,
         'bio': bio,
+        'aboutDoctor': aboutDoctor,
         'email': email,
         'dateTime': dateTime,
         'type': type,
@@ -64,6 +67,7 @@ class AuthM {
         image: json['image'] ?? '',
         name: json['name'] ?? '',
         bio: json['bio'] ?? '',
+        aboutDoctor: json['aboutDoctor'] ?? '',
         email: json['email'] ?? '',
         dateTime: json['dateTime'] ?? '',
         type: json['type'] ?? '',
@@ -86,6 +90,7 @@ class AuthM {
       image: snapshot["image"],
       name: snapshot["name"],
       bio: snapshot["bio"],
+      aboutDoctor: snapshot["aboutDoctor"],
       email: snapshot["email"],
       dateTime: snapshot["dateTime"],
       type: snapshot["type"],

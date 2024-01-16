@@ -269,7 +269,7 @@ class _ProfileScreenState extends State<ProfileScreen>
 
                                     Go.named(context, Routes.buddyList);
                                   },
-                                  child: const Column(
+                                  child:  Column(
                                     children: [
                                       Icon(
                                         Icons.people_alt_outlined,
@@ -296,7 +296,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                   onTap: () {
                                     Go.named(context, Routes.menderList);
                                   },
-                                  child: const Column(
+                                  child:  Column(
                                     children: [
                                       Icon(
                                         Icons.person_outline,
@@ -323,7 +323,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                                   onTap: () {
                                     Go.named(context, Routes.messagesScreen);
                                   },
-                                  child: const Column(
+                                  child:  Column(
                                     children: [
                                       Icon(
                                         Icons.bubble_chart_outlined,
