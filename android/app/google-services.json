@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "259392011191",
+    "project_id": "melodic-metrics-383421",
+    "storage_bucket": "melodic-metrics-383421.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259392011191:android:162a41f0ee7137f2434632",
+        "android_client_info": {
+          "package_name": "com.example.mended_new"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259392011191-982lgeq650ef4mmh3i06gk45pg0sbp88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSJ7DobaZWugvIiCJwJ_jvIrryLINqKbI"
+        },
+        {
+          "current_key": "AIzaSyBMsNewifE7kJ0PYkCWgO6Ffndz8xd_k0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259392011191-982lgeq650ef4mmh3i06gk45pg0sbp88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259392011191:android:f50446f3c4527e26434632",
+        "android_client_info": {
+          "package_name": "com.example.mender_new"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259392011191-982lgeq650ef4mmh3i06gk45pg0sbp88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSJ7DobaZWugvIiCJwJ_jvIrryLINqKbI"
+        },
+        {
+          "current_key": "AIzaSyBMsNewifE7kJ0PYkCWgO6Ffndz8xd_k0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259392011191-982lgeq650ef4mmh3i06gk45pg0sbp88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259392011191:android:67ba45ff5fd78d88434632",
+        "android_client_info": {
+          "package_name": "com.therapist.mended"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259392011191-982lgeq650ef4mmh3i06gk45pg0sbp88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSJ7DobaZWugvIiCJwJ_jvIrryLINqKbI"
+        },
+        {
+          "current_key": "AIzaSyBMsNewifE7kJ0PYkCWgO6Ffndz8xd_k0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259392011191-982lgeq650ef4mmh3i06gk45pg0sbp88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
