@@ -196,7 +196,8 @@ class _FindMendorBottomSheetState extends State<FindMendorBottomSheet> {
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      hintText: "Write Something here...",
+                      hintText: "What would you like to discuss...",
+                      hintStyle: TextStyle(color: themegreytextcolor)
                     ),
                     validator: (value) {
                       if (value!.isEmpty) {

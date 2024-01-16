@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
@@ -6,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mended/route/go_router.dart';
 import 'package:mended/route/navigator.dart';
 import 'package:mended/theme/colors.dart';
+import 'package:mended/utils/database.dart';
 import 'package:mended/views/group/group_screen.dart';
 import 'package:mended/views/memeland/memeland_screen.dart';
 import 'package:mended/views/mender/bottomsheet/find_mender_bottom_sheet.dart';
@@ -184,7 +187,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () {
+                      onTap: () async {
+                       
+
                         Navigator.pop(context);
                         showModalBottomSheet(
                           isScrollControlled: true,
@@ -217,7 +222,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child:  Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
@@ -255,7 +260,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        child:  Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(

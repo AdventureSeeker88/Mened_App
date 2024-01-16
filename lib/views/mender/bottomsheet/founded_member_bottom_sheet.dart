@@ -141,6 +141,7 @@ class _FoundedMemberBottomSheetState extends State<FoundedMemberBottomSheet> {
                                           Align(
                                             alignment: Alignment.center,
                                             child: Column(
+                                            
                                               children: [
                                                 Container(
                                                   height: 150,
@@ -208,14 +209,18 @@ class _FoundedMemberBottomSheetState extends State<FoundedMemberBottomSheet> {
                                                 const SizedBox(
                                                   height: 10,
                                                 ),
-                                                const Padding(
+                                                 Padding(
                                                   padding: EdgeInsets.symmetric(
                                                       horizontal: 40.0),
-                                                  child: Text(
-                                                    "Dr. Nancy Stark is a top specialist at London Bridge Hospital at London. She has achieved several awards and recognition for is contribution and service in her own field.",
-                                                    style: TextStyle(
-                                                      color: themegreytextcolor,
-                                                      fontSize: 16,
+                                                  child: Flexible(
+                                                    child: Text(
+                                                     menderData[0].aboutDoctor,
+                                                   
+                                                    maxLines: 3,overflow: TextOverflow.ellipsis,
+                                                      style: TextStyle(
+                                                        color: themegreytextcolor,
+                                                        fontSize: 16,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -338,7 +343,7 @@ class _FoundedMemberBottomSheetState extends State<FoundedMemberBottomSheet> {
                                                           height: 50,
                                                           width: size.width /
                                                               100 *
-                                                              35,
+                                                              40,
                                                           buttoncolor:
                                                               themewhitecolor,
                                                           borderRadius:
