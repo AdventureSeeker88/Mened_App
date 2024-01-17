@@ -104,10 +104,7 @@ class _GroupPostScreenState extends State<GroupPostScreen> {
                                     child: CustomTextButton(
                                       buttonText: "Settings",
                                       onTap: () {
-                                        // context.pushNamed('edit-group-setting',
-                                        //     queryParams: {
-                                        //       'id': model.id,
-                                        //     });
+                                      
                                         if (model.uid ==
                                             FirebaseAuth
                                                 .instance.currentUser!.uid) {

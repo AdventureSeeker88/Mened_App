@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mended/future/future.dart';
 import 'package:mended/model/group_model.dart';
 import 'package:mended/provider/group_pro.dart';
+import 'package:mended/route/go_router.dart';
+import 'package:mended/route/navigator.dart';
 import 'package:mended/theme/colors.dart';
 import 'package:mended/utils/database.dart';
 import 'package:mended/widgets/custom_icon_button.dart';
@@ -311,28 +315,32 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                 const SizedBox(
                                   height: 40,
                                 ),
-                                Container(
-                                    decoration: BoxDecoration(
-                                      color: themegreycolor.withOpacity(0.5),
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: ListTile(
-                                      onTap: () {
-                                        // final groupProvider = Provider.of<group_pro>(
-                                        //     context,
-                                        //     listen: false);
-                                        // groupProvider.user_group_leave_func(
-                                        //     modelvalue.groupModelData!.id
-                                        //     [FirebaseAuth.instance.currentUser!.uid],
-                                        //     context);
-                                      },
-                                      title: const Text(
-                                        "Leave the group",
-                                        style: TextStyle(
-                                          color: themewhitecolor,
+                                modelvalue.groupModelData!.member.length != 1
+                                    ? const SizedBox()
+                                    : Container(
+                                        decoration: BoxDecoration(
+                                          color:
+                                              themegreycolor.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(16),
                                         ),
-                                      ),
-                                    )),
+                                        child: ListTile(
+                                          onTap: () {
+                                            // final groupProvider = Provider.of<group_pro>(
+                                            //     context,
+                                            //     listen: false);
+                                            // groupProvider.user_group_leave_func(
+                                            //     modelvalue.groupModelData!.id
+                                            //     [FirebaseAuth.instance.currentUser!.uid],
+                                            //     context);
+                                          },
+                                          title: const Text(
+                                            "Leave the group",
+                                            style: TextStyle(
+                                              color: themewhitecolor,
+                                            ),
+                                          ),
+                                        )),
                                 const SizedBox(
                                   height: 5,
                                 ),
@@ -341,7 +349,13 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                       color: themegreycolor.withOpacity(0.5),
                                       borderRadius: BorderRadius.circular(16),
                                     ),
-                                    child: const ListTile(
+                                    child: ListTile(
+                                        onTap: () {
+                                          Go.named(context,
+                                              Routes.groupTransferSetting, {
+                                            'id': modelvalue.groupModelData!.id
+                                          });
+                                        },
                                         title: Text(
                                           "Transfer Admin",
                                           style: TextStyle(

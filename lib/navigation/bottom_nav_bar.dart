@@ -54,10 +54,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-    
       floatingActionButton: CustomIconButton(
         onTap: () {
-         
           chooseOption(size);
         },
         child: Padding(
@@ -140,7 +138,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         onPageChanged: onPageChanged,
         children: const [
           MemelandScreen(),
-          // Container(),
           GroupScreen(),
           ProfileScreen(),
         ],
@@ -185,8 +182,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   children: [
                     InkWell(
                       onTap: () async {
-                       
-
                         Navigator.pop(context);
                         showModalBottomSheet(
                           isScrollControlled: true,
@@ -221,7 +216,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.people,
                               color: themewhitecolor,
@@ -259,7 +254,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.person,
                               color: themewhitecolor,

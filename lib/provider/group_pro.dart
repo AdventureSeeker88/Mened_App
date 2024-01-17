@@ -42,9 +42,7 @@ class GroupPro with ChangeNotifier {
         image: url,
         title: groupname,
         des: groupdescription,
-        member: [
-        
-        ],
+        member: [],
         status: 0,
         type: groupType,
         dateTime: Timestamp.now(),
@@ -326,5 +324,27 @@ class GroupPro with ChangeNotifier {
     Navigator.pop(context);
     Navigator.pop(context);
     customToast("Profile Update Successfully", context);
+  }
+
+  groupTransferAdminFunc(
+      String groupId, String newAdminUid, BuildContext context) async {
+    showCircularLoadDialog(context);
+
+    var coll = firestore.collection(Database.group).doc(groupId);
+    try {
+      await coll.update({"uid": newAdminUid}).then((value) async {
+        Go.namedreplace(
+          context,
+          Routes.navbar,
+        );
+
+        notifyListeners();
+      }).onError((error, stackTrace) {
+        debugPrint(error.toString());
+      });
+    } catch (e) {
+         Navigator.pop(context);
+      debugPrint("Catch Exception: $e");
+    }
   }
 }
