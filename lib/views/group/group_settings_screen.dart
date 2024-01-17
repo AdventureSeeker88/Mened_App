@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:mended/future/future.dart';
 import 'package:mended/model/group_model.dart';
 import 'package:mended/provider/group_pro.dart';
@@ -42,6 +44,7 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: themegreencolor,
         body: SafeArea(
@@ -316,8 +319,7 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                   height: 40,
                                 ),
                                 modelvalue.groupModelData!.member.length != 1
-                                    ? const SizedBox()
-                                    : Container(
+                                    ? Container(
                                         decoration: BoxDecoration(
                                           color:
                                               themegreycolor.withOpacity(0.5),
@@ -326,13 +328,29 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                         ),
                                         child: ListTile(
                                           onTap: () {
-                                            // final groupProvider = Provider.of<group_pro>(
-                                            //     context,
-                                            //     listen: false);
-                                            // groupProvider.user_group_leave_func(
-                                            //     modelvalue.groupModelData!.id
-                                            //     [FirebaseAuth.instance.currentUser!.uid],
-                                            //     context);
+                                            final members = [];
+                                            for (var i = 0;
+                                                i <
+                                                    modelvalue.groupModelData!
+                                                        .member.length;
+                                                i++) {
+                                              if (FirebaseAuth.instance
+                                                      .currentUser!.uid !=
+                                                  modelvalue.groupModelData!
+                                                      .member[i]) {
+                                                members.add(modelvalue
+                                                    .groupModelData!.member[i]);
+                                              }
+                                            }
+                                          
+
+                                            Provider.of<GroupPro>(context,
+                                                    listen: false)
+                                                .groupLeaveFunc(
+                                                    modelvalue
+                                                        .groupModelData!.id,
+                                                    members,
+                                                    context);
                                           },
                                           title: const Text(
                                             "Leave the group",
@@ -340,7 +358,8 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                               color: themewhitecolor,
                                             ),
                                           ),
-                                        )),
+                                        ))
+                                    : const SizedBox(),
                                 const SizedBox(
                                   height: 5,
                                 ),
@@ -356,13 +375,13 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                             'id': modelvalue.groupModelData!.id
                                           });
                                         },
-                                        title: Text(
+                                        title: const Text(
                                           "Transfer Admin",
                                           style: TextStyle(
                                             color: themewhitecolor,
                                           ),
                                         ),
-                                        trailing: Icon(
+                                        trailing: const Icon(
                                           Icons.arrow_forward_ios,
                                           size: 18,
                                           color: themewhitecolor,
@@ -375,14 +394,18 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                                       color: themegreycolor.withOpacity(0.5),
                                       borderRadius: BorderRadius.circular(16),
                                     ),
-                                    child: const ListTile(
-                                        title: Text(
+                                    child: ListTile(
+                                        onTap: () {
+                                          closeGroupConfirmationDialog(
+                                              context, size, modelvalue);
+                                        },
+                                        title: const Text(
                                           "Close Group",
                                           style: TextStyle(
                                             color: themewhitecolor,
                                           ),
                                         ),
-                                        trailing: Icon(
+                                        trailing: const Icon(
                                           Icons.close,
                                           size: 18,
                                           color: themewhitecolor,
@@ -394,6 +417,124 @@ class _GroupSettingsScreenState extends State<GroupSettingsScreen> {
                       );
           })),
         ));
+  }
+
+  Future<Object?> closeGroupConfirmationDialog(
+      BuildContext context, Size size, GroupPro modelvalue) {
+    return showAnimatedDialog(
+      barrierDismissible: true,
+      animationType: DialogTransitionType.slideFromBottomFade,
+      curve: Curves.fastOutSlowIn,
+      duration: const Duration(milliseconds: 700),
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AlertDialog(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(25.0),
+            ),
+          ),
+          titlePadding: const EdgeInsets.all(20),
+          actionsPadding: const EdgeInsets.all(0),
+          buttonPadding: const EdgeInsets.all(0),
+          title: SizedBox(
+            width: size.width,
+            child: Column(
+              children: [
+                const Text(
+                  "Close Group",
+                  style: TextStyle(
+                    color: themeblackcolor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Icon(
+                  Icons.ads_click_sharp,
+                  color: themelightgreencolor,
+                  size: 40,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Are you sure you want to close ${modelvalue.groupModelData!.title} group?",
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: themeblackcolor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Provider.of<GroupPro>(context, listen: false)
+                              .groupCloseFunc(
+                                  modelvalue.groupModelData!.id, context);
+                        },
+                        child: Container(
+                          width: size.width / 100 * 33,
+                          height: size.height / 100 * 5,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: themeredcolor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Center(
+                            child: Text(
+                              "Yes",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: themewhitecolor),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: size.width / 100 * 33,
+                          height: size.height / 100 * 5,
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Palette.themecolor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: const Center(
+                            child: Text(
+                              "No",
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: themewhitecolor),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Stream<GroupModel> groupStream(String id) {
