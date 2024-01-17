@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -343,7 +344,65 @@ class GroupPro with ChangeNotifier {
         debugPrint(error.toString());
       });
     } catch (e) {
-         Navigator.pop(context);
+      Navigator.pop(context);
+      debugPrint("Catch Exception: $e");
+    }
+  }
+
+  groupCloseFunc(String groupId, BuildContext context) async {
+    var coll = firestore.collection(Database.group).doc(groupId);
+    try {
+      await coll.update({"status": 1}).then((value) async {
+        Navigator.pop(context);
+        Go.namedreplace(
+          context,
+          Routes.navbar,
+        );
+
+        notifyListeners();
+      }).onError((error, stackTrace) {
+        debugPrint(error.toString());
+      });
+    } catch (e) {
+      Navigator.pop(context);
+      Navigator.pop(context);
+      debugPrint("Catch Exception: $e");
+    }
+  }
+
+  groupLeaveFunc(String groupId, List memebers, BuildContext context) async {
+    showCircularLoadDialog(context);
+
+    try {
+      var coll = firestore.collection(Database.group).doc(groupId);
+
+      memebers.shuffle();
+      int randomIndex = math.Random().nextInt(memebers.length);
+      String randomAdmin = memebers[randomIndex];
+      // -- UPDATING ADMIN UID
+      await coll.update({"uid": randomAdmin}).then((value) async {});
+      // -- UPDATING MEMBER ARRAY
+      await coll.update({
+        "member": FieldValue.arrayRemove([auth.currentUser!.uid])
+      });
+      // -- DELETING ARRAY FROM MEMBER COLL
+      await firestore
+          .collection(Database.group)
+          .doc(groupId)
+          .collection("member")
+          .doc(auth.currentUser!.uid)
+          .delete()
+          .then((value) {
+        Navigator.pop(context);
+        Go.namedreplace(
+          context,
+          Routes.navbar,
+        );
+        notifyListeners();
+      });
+    } catch (e) {
+      Navigator.pop(context);
+      Navigator.pop(context);
       debugPrint("Catch Exception: $e");
     }
   }

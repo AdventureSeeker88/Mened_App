@@ -22,21 +22,7 @@ class GroupTransferScreen extends StatefulWidget {
 }
 
 class _GroupTransferScreenState extends State<GroupTransferScreen> {
-  // TextEditingController titleCtrl = TextEditingController();
-  // TextEditingController desCtrl = TextEditingController();
-  // final formKey = GlobalKey<FormState>();
-  // @override
-  // void initState() {
-  //   load();
-  //   super.initState();
-  // }
-
-  // load() async {
-  //   final groupPro = Provider.of<GroupPro>(context, listen: false);
-  //   await groupPro.getGroupId(widget.id);
-  //   titleCtrl.text = groupPro.groupModelData!.title;
-  //   desCtrl.text = groupPro.groupModelData!.des;
-  // }
+ 
 
   @override
   Widget build(BuildContext context) {

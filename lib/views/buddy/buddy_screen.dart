@@ -806,7 +806,8 @@ class _BuddyScreenState extends State<BuddyScreen> {
 
   Future<Object?> report(size, String userId) {
     int value = 1;
-    return showAnimatedDialog(
+    return 
+    showAnimatedDialog(
       barrierDismissible: true,
       animationType: DialogTransitionType.slideFromBottomFade,
       curve: Curves.fastOutSlowIn,
@@ -1015,11 +1016,14 @@ class _BuddyScreenState extends State<BuddyScreen> {
         ),
       ),
     );
+ 
+ 
   }
 
   
   Future<Object?> reportConfirmation(size) {
-    return showAnimatedDialog(
+    return 
+    showAnimatedDialog(
       barrierDismissible: true,
       animationType: DialogTransitionType.slideFromBottomFade,
       curve: Curves.fastOutSlowIn,
@@ -1112,5 +1116,6 @@ class _BuddyScreenState extends State<BuddyScreen> {
         ),
       ),
     );
+ 
   }
 }
