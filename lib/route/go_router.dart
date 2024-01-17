@@ -16,6 +16,7 @@ import 'package:mended/views/flicks/add_flicks_screen.dart';
 import 'package:mended/views/flicks/flicks_screen.dart';
 import 'package:mended/views/group/create_group_screen.dart';
 import 'package:mended/views/group/edit_gorup_profile_screen.dart';
+import 'package:mended/views/group/group_transfer_screen.dart';
 import 'package:mended/views/group/group_add_post_screen.dart';
 import 'package:mended/views/group/group_post_screen.dart';
 import 'package:mended/views/group/group_settings_screen.dart';
@@ -51,6 +52,7 @@ class Routes {
   static String createGroup = "create-group";
   static String groupPost = "group-post";
   static String groupSetting = "group-setting";
+  static String groupTransferSetting = "group-transfer-setting";
   static String groupaddPost = "group-add-post";
   static String editGroupProfile = "edit-group-profile";
   static String addflick = "add-flick";
@@ -186,6 +188,17 @@ class Routes {
         pageBuilder: (context, state) {
           return MaterialPage(
             child: GroupSettingsScreen(
+              id: state.pathParameters['id']!,
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        name: groupTransferSetting,
+        path: '/$groupTransferSetting/:id',
+        pageBuilder: (context, state) {
+          return MaterialPage(
+            child: GroupTransferScreen(
               id: state.pathParameters['id']!,
             ),
           );
