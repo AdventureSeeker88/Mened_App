@@ -5,6 +5,8 @@ import 'package:mended/model/group_model.dart';
 import 'package:mended/utils/database.dart';
 
 class FutureFun {
+
+  
   int views = 0;
   Future<int> flickTotalViews(String userId) async {
     var collection = FirebaseFirestore.instance.collection(Database.flicks);
