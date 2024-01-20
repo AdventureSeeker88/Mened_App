@@ -480,6 +480,7 @@ class _GroupPostScreenState extends State<GroupPostScreen> {
                                                                       InkWell(
                                                                         onTap:
                                                                             () {
+                                                                              
                                                                           showModalBottomSheet(
                                                                             isScrollControlled:
                                                                                 true,

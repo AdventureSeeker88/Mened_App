@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:mended/provider/flicks_pro.dart';
+import 'package:mended/theme/colors.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
@@ -27,7 +29,6 @@ class _FlicksVideoWidgetState extends State<FlicksVideoWidget> {
 
     videoPlayerController = VideoPlayerController.network(
       widget.videoUrl,
-      
     );
 
     videoPlayerController.addListener(() {
@@ -36,8 +37,6 @@ class _FlicksVideoWidgetState extends State<FlicksVideoWidget> {
     videoPlayerController.setLooping(true);
     videoPlayerController.initialize().then((_) => setState(() {}));
     videoPlayerController.play();
-      
-
 
     Provider.of<FlicksPro>(context, listen: false).addViews(widget.id);
   }
@@ -48,22 +47,33 @@ class _FlicksVideoWidgetState extends State<FlicksVideoWidget> {
     videoPlayerController.dispose();
   }
 
+  bool isPlaying = false;
   @override
   Widget build(BuildContext context) {
-    if (widget.play) {
-      videoPlayerController.play();
-    } else {
-      videoPlayerController.pause();
-    }
+    // if (widget.play) {
+    //   videoPlayerController.play();
+    // } else {
+    //   videoPlayerController.pause();
+    // }
     final size = MediaQuery.of(context).size;
 
     return Container(
       width: size.width,
       height: size.height,
       decoration: const BoxDecoration(
-        color: Colors.black,
+        color: Palette.themecolor,
       ),
-      child:VideoPlayer(videoPlayerController, )
+      child: videoPlayerController.value.isInitialized
+          ? VideoPlayer(
+              videoPlayerController,
+            )
+          : const Center(
+              child: SpinKitSquareCircle(
+                color: themewhitecolor,
+                size: 50.0,
+              ),
+            ),
+      
     );
   }
 }
