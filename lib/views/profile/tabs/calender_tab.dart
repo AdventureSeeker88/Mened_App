@@ -238,23 +238,27 @@ class _SessionButtonWidgetState extends State<SessionButtonWidget> {
               .where("status", isEqualTo: 0)
               .get()
               .then((value) {
-            log("value.docs[0].data(): ${value.docs[0].data()['callData']!['channelId']}");
+            log(value.docs.toString());
+            // log("value.docs[0].data(): ${value.docs[0].data()['callData']!['channelId']}");
             final post = Provider.of<CallPro>(context, listen: false);
             if (value.docs.isEmpty) {
-              log("createCall");
-              // post.createCall(10, "Hello world", 5,
-              //    FirebaseAuth.instance.currentUser!.uid, context);
+              log("createCall"); 
+        
+               post.createCall(10, "Hello world", 5,
+                 widget.model.cleintId, context);
 
             } else {
+              log("value.docs[0].data(): ${value.docs[0].data()['callData']}");
               log("joinCall");
-              //  post.joinCall(value.docs[0]['callData'],
-              //               FirebaseAuth.instance.currentUser!.uid, 5, context);
+              post.joinCall(value.docs[0].data()['callData'], context);
 
               // post.joinCall(value.docs[0]['callData'],
               //     FirebaseAuth.instance.currentUser!.uid, 5, context);
             }
           });
-        } else {}
+        } else {
+          log("elseeee");
+        }
       },
       height: 40,
       width: size.width / 100 * 22,
