@@ -10,4 +10,5 @@ class Database {
   static String transferCoin = "transfer-coin";
   static String rating = "rating";
   static String cleint = "cleint";
+    static String session = "session";
 }
